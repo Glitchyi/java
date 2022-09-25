@@ -7,6 +7,7 @@ public class QuoAndRem {
         int a = sc.nextInt();
         int b = sc.nextInt();
         sc.close();
-        System.out.print("When "+a+" is divided by "+b+" the Quotient is: "+(a/b) + " and the Reminder is: "+(a%b)+"\n");
+        System.out.print("When " + a + " is divided by " + b + " the Quotient is: " + (a / b) + " and the Reminder is: "
+                + (a % b) + "\n");
     }
 }
