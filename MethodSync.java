@@ -1,4 +1,3 @@
-package Labs;
 public class MethodSync extends Thread {
     public static void main(String[] args) {
         Thread t1 = new Thread(new MethodSync(), "OddThread");

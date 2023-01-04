@@ -1,4 +1,4 @@
-package Labs;
+  
 
 //String tokeniser in java
 import java.util.StringTokenizer;

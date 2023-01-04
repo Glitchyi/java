@@ -1,4 +1,4 @@
-package Labs;
+  
 //create a program to copy a file to another file
 import java.io.*;
 public class FiletoFile {

@@ -1,4 +1,4 @@
-package Labs;
+  
 public class ThreadDemo extends Thread {
     public static void main(String[] args) {
         Thread t1 = new Thread(new Threading(), "OddThread");

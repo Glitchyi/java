@@ -1,4 +1,4 @@
-package Labs;
+  
 //multithreading in java print 0 to 10 with sleep 1000
 public class Threading extends Thread {
     public void run() {
