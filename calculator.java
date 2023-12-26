@@ -1,4 +1,4 @@
-  
+
 // import statements  
 import java.awt.*;
 import java.awt.event.*;
@@ -10,6 +10,31 @@ public class calculator implements ActionListener {
     JButton btnadd, btnmin, btndiv, btnmult, btneq, clear; //function buttons
     int fin=0; boolean init = true;                         //control flow vars
     JTextField txt = new JTextField();
+    public void actionPerformed(ActionEvent e) {
+        while (true) {
+            if ( e.getActionCommand() == "cls"){
+                txt.setText(null);
+                fin=0; init= true;
+            }else if ( e.getActionCommand() == "=" ){
+                op(txt.getText());
+                txt.setText(null); 
+                txt.setText(""+fin);
+                fin=0; init= true;
+            }else if (e.getActionCommand() == "+" || e.getActionCommand() == "/" || e.getActionCommand() == "-" || e.getActionCommand() == "x") {
+                String x = new String(txt.getText());
+                if(init){
+                    fin=Integer.parseInt(x);
+                    init = false;
+                }else{
+                    op(x);
+                }
+                txt.setText(e.getActionCommand());
+            } else {
+                txt.setText(txt.getText() + e.getActionCommand() + "");
+            }
+            break;
+        }
+    }
     calculator() {                                          //constructor
         frameObj = new JFrame();
         JPanel p1 = new JPanel();
@@ -44,6 +69,7 @@ public class calculator implements ActionListener {
         p1.setLayout(new GridLayout(4, 4));
         frameObj.setSize(300, 600);
         frameObj.setVisible(true);
+        frameObj.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
     public void op(String x){
         switch(x.charAt(0)){
@@ -52,31 +78,6 @@ public class calculator implements ActionListener {
             case '/': fin/=Integer.parseInt(x.substring(1));break;
             case 'x': fin*=Integer.parseInt(x.substring(1));break;
             default: break;
-        }
-    }
-    public void actionPerformed(ActionEvent e) {
-        while (true) {
-            if ( e.getActionCommand() == "cls"){
-                txt.setText(null);
-                fin=0; init= true;
-            }else if ( e.getActionCommand() == "=" ){
-                op(txt.getText());
-                txt.setText(null);
-                txt.setText(""+fin);
-                fin=0; init= true;
-            }else if (e.getActionCommand() == "+" || e.getActionCommand() == "/" || e.getActionCommand() == "-" || e.getActionCommand() == "x") {
-                String x = new String(txt.getText());
-                if(init){
-                    fin=Integer.parseInt(x);
-                    init = false;
-                }else{
-                    op(x);
-                }
-                txt.setText(e.getActionCommand());
-            } else {
-                txt.setText(txt.getText() + e.getActionCommand() + "");
-            }
-            break;
         }
     }
 
